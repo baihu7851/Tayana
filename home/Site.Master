@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Tayana.home.Site" %>
+
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Tayana | Tayana Yachts Official Website
+    </title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link href="css/homestyle.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="contain">
+            <div class="sub">
+                <p><a href="index.aspx">Home</a></p>
+            </div>
+            <%--選單開始--%>
+            <div id="logol" class="logo001">
+                <a href="index.aspx">
+                    <img src="images/logo001.gif" alt="Tayana" />
+                </a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li class="menuli01"><a href="Yachts_OverView.aspx">Yachts</a></li>
+                    <li class="menuli02"><a href="new_list.aspx">NEWS</a></li>
+                    <li class="menuli03"><a href="company.aspx">COMPANY</a></li>
+                    <li class="menuli04"><a href="dealers.aspx">DEALERS</a></li>
+                    <li class="menuli05"><a href="contact.aspx">CONTACT</a></li>
+                </ul>
+            </div>
+            <%--選單結束--%>
+            <asp:ContentPlaceHolder ID="body" runat="server">
+            </asp:ContentPlaceHolder>
+            <%--落款開始--%>
+            <div class="footer">
+                <div class="footerp00">
+                    <a href="http://www.tognews.com/" target="_blank">
+                        <p>
+                            <img src="images/tog.jpg" alt="TOG" />
+                        </p>
+                    </a>
+                    <span>Visitor：
+                        <div style="padding-top: 1px; float: right">
+                            <img src='http://comp.hihosting.hinet.net/scripts/Count.exe?display=counter&df=89940168_1.dat&dd=A002&st=1&ft=0' height="13" />
+                        </div>
+                    </span>
+                    <p class="footerp001">
+                        © 1973-2012 Tayana Yachts, Inc. All Rights Reserved
+                    </p>
+                </div>
+                <div class="footer01">
+                    <span>No. 60, Hai Chien Road, Chung Men Li, Lin Yuan District, Kaohsiung City, Taiwan, R.O.C.</span><br />
+                    <span>TEL：+886(7)641-2721</span> <span>FAX：+886(7)642-3193</span>
+                </div>
+            </div>
+        </div>
+        <%--落款結束--%>
+    </form>
+</body>
+</html>
