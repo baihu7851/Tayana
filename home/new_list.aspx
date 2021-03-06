@@ -63,7 +63,7 @@
                                     <li>
                                         <div>
                                             <p>
-                                                <asp:Image ID="imgNewsImges" runat="server" ImageUrl='<%#"~/upload/Images/"+Eval("圖片") %>' />
+                                                <asp:Image ID="imgNewsImges" runat="server" ImageUrl='<%#"~/upload/images/sm/sm-"+Eval("圖片") %>' />
                                             </p>
                                         </div>
                                     </li>

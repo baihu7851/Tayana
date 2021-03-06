@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 
 img,
 div,
@@ -474,7 +474,7 @@ body {
   float: left;
   background-color: #ffffff;
   height: 148px;
-  width: 209px;
+/*  width: 209px;*/
   overflow: hidden;
 }
 .list02 li div {

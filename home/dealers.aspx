@@ -55,7 +55,6 @@
                                         </li>
                                         <li class="list02li02">
                                             <asp:Label runat="server" Text='<%#Eval("名稱") %>'></asp:Label><br />
-                                            <asp:Literal runat="server" Text='<%#Eval("國名") %>'></asp:Literal><br />
                                             <asp:Literal runat="server" Text='<%#Eval("資訊") %>'></asp:Literal><br />
                                         </li>
                                     </ul>

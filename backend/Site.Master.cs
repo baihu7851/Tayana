@@ -21,7 +21,7 @@ namespace Tayana.backend
             var newNavbar = new StringBuilder();
             var userData = ((FormsIdentity)Page.User.Identity).Ticket.UserData.Split(',');
             userName.InnerText = Page.User.Identity.Name;
-            userImg.Src = "~/upload/images/sm/sm-" + userData[0];
+            userImg.Src = "~/upload/images/" + userData[0];
             var sql = new SqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings["TayanaConnectionString"].ConnectionString);
             const string cmdText = "SELECT * FROM 權限";
             var sqlCommand = new SqlCommand(cmdText, sql);

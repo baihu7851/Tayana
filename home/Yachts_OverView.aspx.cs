@@ -29,7 +29,7 @@ namespace Tayana.home
             }
             else
             {
-                var command = new SqlCommand("SELECT TOP 1 * FROM 船 WHERE 刪除 = 0", _sql);
+                var command = new SqlCommand("SELECT TOP 1 * FROM 船 WHERE 刪除 = 0 ORDER BY Id DESC", _sql);
                 _sql.Open();
                 var dataReader = command.ExecuteReader();
                 while (dataReader.Read())
@@ -43,15 +43,13 @@ namespace Tayana.home
 
         private void ShowData()
         {
-            var cmdText = "SELECT Id, 船名, 船號, 概觀, 新船 FROM 船 Where 刪除 = 0";
+            var id = Request.QueryString["id"] ?? "1";
+            var cmdText = "SELECT Id, 船名, 船號, 新船 FROM 船 Where 刪除 = 0  ORDER BY Id DESC";
             var command = new SqlCommand(cmdText, _sql);
             _sql.Open();
             var leftRepeater = command.ExecuteReader();
             while (leftRepeater.Read())
             {
-                crumbName.InnerText = leftRepeater["船名"] + " " + leftRepeater["船號"];
-                rightName.InnerText = leftRepeater["船名"] + " " + leftRepeater["船號"];
-                view.InnerHtml = leftRepeater["概觀"].ToString();
                 var name = leftRepeater["船名"] + " " + leftRepeater["船號"];
                 var listId = leftRepeater["Id"].ToString();
                 if ((bool)leftRepeater["新船"])
@@ -62,6 +60,18 @@ namespace Tayana.home
             }
             _sql.Close();
 
+            cmdText = $"SELECT 船名, 船號, 概觀 FROM 船 WHERE (Id = {Id})";
+            command = new SqlCommand(cmdText, _sql);
+            _sql.Open();
+            var reader = command.ExecuteReader();
+            while (reader.Read())
+            {
+                crumbName.InnerText = reader["船名"] + " " + reader["船號"];
+                rightName.InnerText = reader["船名"] + " " + reader["船號"];
+                view.InnerHtml = reader["概觀"].ToString();
+            }
+            _sql.Close();
+
             cmdText = $"SELECT Pid, 檔案 FROM 船_檔案集 WHERE (Pid = {Id})";
             command = new SqlCommand(cmdText, _sql);
             _sql.Open();
@@ -69,7 +79,7 @@ namespace Tayana.home
             while (downloadReader.Read())
             {
                 var download = downloadReader["檔案"].ToString();
-                downloadsLink.InnerHtml += $"<li><a href = '../../upload/Files/{download}' target = '_blank' >{download}</ a></ li> ";
+                downloadsLink.InnerHtml += $"<li><a href = '../../upload/File/{download}' target = '_blank' >{download}</ a></ li> ";
             }
             _sql.Close();
         }

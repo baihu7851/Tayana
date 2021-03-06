@@ -118,7 +118,7 @@ namespace Tayana.backend.users
                     userName.InnerText = sqlData["暱稱"].ToString();
                     InputEmail.Value = sqlData["信箱"].ToString();
                     InputName.Value = sqlData["暱稱"].ToString();
-                    userImg.ImageUrl = $"~/upload/images/s{sqlData["圖片"]}";
+                    userImg.ImageUrl = $"~/upload/images/{sqlData["圖片"]}";
                     userPage.Checked = Convert.ToBoolean(auth & 1);
                     yachtsPage.Checked = Convert.ToBoolean(auth & 2);
                     newsPage.Checked = Convert.ToBoolean(auth & 4);

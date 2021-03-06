@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -65,7 +66,8 @@ namespace Tayana.backend.dealers
                     directoryInfo.Create();
                 }
                 dealerImgFile.PostedFile.SaveAs(imgPath);
-                Tools.GenerateThumbnailImage(newImgName, @"C:\Users\work\Desktop\Project\Tayana\upload\images", @"C:\Users\work\Desktop\Project\Tayana\upload\images\sm", "sm-", 59);
+
+                Tools.GenerateThumbnailImage(209, newImgName, WebConfigurationManager.AppSettings["source"], WebConfigurationManager.AppSettings["target"], "sm-");
                 dealerImgName.Text = newImgName;
             }
             sqlCommand.Parameters.AddWithValue("@圖片", dealerImgName.Text);

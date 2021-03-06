@@ -16,11 +16,10 @@ namespace Tayana.backend
         protected void Login_Click(object sender, EventArgs e)
         {
             var sql = new SqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings["TayanaConnectionString"].ConnectionString);
-            var md5Hash = Md5Hash(password.Value);
-            const string cmdText = "SELECT * FROM 使用者 WHERE (信箱 = @信箱) AND (密碼 = @密碼)";
+            const string cmdText = "SELECT * FROM [使用者] WHERE (信箱 = @信箱) AND (密碼 = @密碼)";
             var sqlCommand = new SqlCommand(cmdText, sql);
             sqlCommand.Parameters.AddWithValue("@信箱", email.Value);
-            sqlCommand.Parameters.AddWithValue("@密碼", md5Hash);
+            sqlCommand.Parameters.AddWithValue("@密碼", Md5Hash(password.Value));
             sql.Open();
             var sqlData = sqlCommand.ExecuteReader();
             if (sqlData.Read())

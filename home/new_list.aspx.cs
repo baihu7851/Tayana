@@ -21,7 +21,7 @@ namespace Tayana.home
             var pageNumber = Request.QueryString["page"] == null ? 1 : Convert.ToInt32(Request.QueryString["page"]);
             var cmdText = $@"WITH Page AS
                 (
-                select ROW_NUMBER() over(order by Id DESC) as 編號,
+                select ROW_NUMBER() over(order by 置頂 DESC, Id DESC) as 編號,
                 Id, 標題, 副標題, 圖片, 置頂, 日期 FROM 新聞
                 )
                 SELECT * FROM Page WHERE 編號 >= { (pageNumber - 1) * onePage + 1 } AND 編號 <= { pageNumber * onePage}";

@@ -61,7 +61,7 @@ namespace Tayana.backend.news
             var cmdText = $@"
                 WITH Page AS
                 (
-                    select ROW_NUMBER() over(order by Id DESC) as 編號, Id, 標題, 置頂, 圖片 from 新聞 WHERE (刪除 = 0)
+                    select ROW_NUMBER() over(order by 置頂 DESC, Id DESC) as 編號, Id, 標題, 置頂, 圖片 from 新聞 WHERE (刪除 = 0)
                 )
                 SELECT * FROM Page WHERE 編號 >={ (pageNumber - 1) * onePage + 1 }AND 編號<={ pageNumber * onePage}";
             var sqlCommand = new SqlCommand(cmdText, _sql);

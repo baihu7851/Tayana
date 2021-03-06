@@ -86,10 +86,7 @@
                     </ul>
                 </div>
                 <%--次選單--%>
-                <div class="box5">
-                    <h4>DETAIL SPECIFICATION</h4>
-                    <div id="view" runat="server"></div>
-                </div>
+                <div id="view" runat="server"></div>
                 <%--內容結束--%>
             </div>
         </div>

@@ -86,22 +86,7 @@
                     </ul>
                 </div>
                 <%--次選單--%>
-                <div class="box6">
-                    <p>Layout & deck plan</p>
-                    <asp:Repeater ID="layoutRepeater" runat="server">
-                        <HeaderTemplate>
-                            <ul>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <li>
-                                <img src='<%#"../../upload/images/"+Eval("佈局") %>' alt="" />
-                            </li>
-                        </ItemTemplate>
-                        <FooterTemplate>
-                            </ul>
-                        </FooterTemplate>
-                    </asp:Repeater>
-                </div>
+                <div id="view" runat="server"></div>
                 <p class="topbuttom">
                     <img src="images/top.gif" alt="top" />
                 </p>

@@ -2,6 +2,7 @@
 using System.Data.SqlClient;
 using System.IO;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Security;
 using Tayana.backend.Utils;
 
@@ -122,7 +123,7 @@ namespace Tayana.backend.yachts
                 directoryInfo.Create();
             }
             interior.SaveAs(imgPath);
-            Tools.GenerateThumbnailImage(newImgName, @"C:\Users\work\Desktop\Project\Tayana\upload\images", @"C:\Users\work\Desktop\Project\Tayana\upload\images\sm", "sm-", 59);
+            Tools.GenerateThumbnailImage( newImgName, WebConfigurationManager.AppSettings["source"], WebConfigurationManager.AppSettings["target"], "sm-",59);
             sqlCommand.Parameters.AddWithValue("@船圖", newImgName);
             _sql.Open();
             sqlCommand.ExecuteNonQuery();

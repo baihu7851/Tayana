@@ -115,7 +115,7 @@
                             <ItemTemplate>
                                 <li class="info">
                                     <a href="#" target="_blank">
-                                        <img src='../upload/Images/<%#Eval("圖片") %>' onerror="this.src='/errorImg/yacht.jpg'" alt="" />
+                                        <img src='<%#"~/upload/images/sm" +Eval("圖片") %>' onerror="this.src='/errorImg/yacht.jpg'" alt="" />
                                     </a>
                                     <!--文字開始-->
                                     <div class="wordtitle">
@@ -147,7 +147,7 @@
                                     <li>
                                         <div>
                                             <p class="bannerimg_p">
-                                                <img src='../upload/Images/sm/sm-<%#Eval("圖片") %>' onerror="this.src='/errorImg/sm-yacht.jpg'" alt="" />
+                                                <img src='<%#"~/upload/images/sm/sm-" +Eval("圖片") %>' onerror="this.src='/errorImg/sm-yacht.jpg'" alt="" />
                                             </p>
                                         </div>
                                     </li>

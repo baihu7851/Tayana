@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.IO;
+using System.Web.Configuration;
 using System.Web.Security;
 using Tayana.backend.Utils;
 
@@ -49,7 +50,7 @@ namespace Tayana.backend.news
                     directoryInfo.Create();
                 }
                 newsImgFile.PostedFile.SaveAs(imgPath);
-                Tools.GenerateThumbnailImage(newImgName, @"C:\Users\work\Desktop\Project\Tayana\upload\images", @"C:\Users\work\Desktop\Project\Tayana\upload\images\sm", "sm-", 59);
+                Tools.GenerateThumbnailImage(161, newImgName, WebConfigurationManager.AppSettings["source"], WebConfigurationManager.AppSettings["target"], "sm-");
 
                 newsImgName.Text = newImgName;
             }

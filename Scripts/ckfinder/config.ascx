@@ -1,4 +1,5 @@
 <%@ Control Language="C#" EnableViewState="false" AutoEventWireup="false" Inherits="CKFinder.Settings.ConfigFile" %>
+<%@ Import Namespace="System.Web.Configuration" %>
 <%@ Import Namespace="CKFinder.Settings" %>
 <script runat="server">
 
@@ -35,7 +36,7 @@
 
         // The phisical directory in the server where the filed will end up. If
         // blank, CKFinder attempts to resolve BaseUrl.
-        BaseDir = "C:/Users/work/Desktop/Project/Tayana/upload/";
+        BaseDir = WebConfigurationManager.AppSettings["baseDir"];
 
         // Optional: enable extra plugins (remember to copy .dll fileds first).
         Plugins = new string[] {

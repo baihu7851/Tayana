@@ -38,7 +38,7 @@
                                                 </asp:HyperLink>
                                             </td>
                                             <td>
-                                                <asp:Image CssClass="rounded-circle" Width="40" runat="server" onerror="this.src='/errorImg/user.jpg'" ImageUrl='<%#"~/upload/images/sm/sm-" +Eval("圖片") %>' />
+                                                <asp:Image CssClass="rounded-circle" Width="40" runat="server" onerror="this.src='/errorImg/user.jpg'" ImageUrl='<%#"~/upload/images/" +Eval("圖片") %>' />
                                             </td>
                                             <td>
                                                 <asp:LinkButton runat="server" CssClass="btn btn-sm btn-rounded btn-outline-danger py-1" CommandName="Del" CommandArgument='<%#Eval("Id") %>' OnClientClick="javascript:if(!window.confirm('你確定要刪除嗎?')) return false;">
